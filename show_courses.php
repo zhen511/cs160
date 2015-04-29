@@ -49,7 +49,7 @@
 			if ($result)
 			{
 
-				while (list($title, $description, $lesson_link, $lesson_image) = mysqli_fetch_array($result))
+				while (list($id, $title, $description, $lesson_link, $lesson_image) = mysqli_fetch_array($result))
 				{ ?>
 					<div>
 						<h3><?php print $title; ?></h3>

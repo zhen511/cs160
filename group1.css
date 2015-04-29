@@ -1,0 +1,45 @@
+.lesson_table{
+	overflow:hidden;
+}
+
+#div1{
+	background-color: #b0c4de;
+}
+
+.myform{
+	font-size:20px;
+}
+
+#search_text{
+	width: 25%;
+	font-size:24px;
+}
+
+#search{
+	font-size:24px;
+}
+
+#most_popular, .search_level{
+	position: relative;
+	left: 20px;
+}
+
+.search_level{
+	position: relative;
+	left: 40px;
+}
+
+.search_type{
+	position: relative;
+	left: 60px;
+}
+
+
+.td_top {
+    vertical-align: top;
+	table-layout: fixed;
+}
+
+.lesson_link{
+	color: green;
+}
