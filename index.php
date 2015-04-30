@@ -37,12 +37,17 @@
 			
 		</style>
 		<script src="jquery-1.11.2.min.js"></script>
+		<script src="hightlight.js"></script>
 		<script type="text/javascript">
 			function submitform()
 			{
 				$("#popular").val(1);
 				$("#Search").click()
 			}
+			$( document ).ready(function() {
+				//alert("ddd");
+				$("body #div2").highlight($("#search_text").val().split(" "));
+			});
 		</script>
 	</head>
 
@@ -69,17 +74,20 @@
 				<br />
 			</div>
 		</div>
-		<?php
-			if(strlen($search_text)>0 || strlen($search_level)>0 || strlen($search_level)>0)
-            {
-                if($sorted_popular!=1){
-					search($search_text, $search_level, $search_type);
+		<div id="div2">
+			<?php
+				if(strlen($search_text)>0 || strlen($search_level)>0 || strlen($search_type)>0)
+				{
+					if($sorted_popular!=1){
+						search($search_text, $search_level, $search_type);
+					}
+					
 				}
-				else{
-					search_by_popular($search_text, $search_level, $search_type);
+				
+				if($sorted_popular==1){
+						search_by_popular($search_text, $search_level, $search_type);
 				}
-			}
-		?>
-
+			?>
+		</div>
 	</body>
 </html>

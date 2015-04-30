@@ -15,8 +15,19 @@
 			$sql="update ed set hit_count=hit_count+1 where id=" . $id;
 			$conn->query($sql);
 			$row = mysqli_fetch_row($result);
-			header('Location: '.$row[0]);
 			mysqli_free_result($result);
+			echo '<!DOCTYPE html>
+				<html>
+				<head>
+				<meta http-equiv="Refresh" content="0;url=' . $row[0] .'">
+				</head>
+				<body>
+				</body>
+				</html> ';
+			//exit(header('Location: '.$row[0]));
+			//http_redirect($row[0]);
+			
+			
 		}
 		
 	}
@@ -70,7 +81,7 @@
 		}
 		//echo $where;
 		
-		$sql="select `id`, `title`, `description`, `lesson_link`, `lesson_image`, `category`, `student_grades`, `author`, `content_type`, `time_scraped` from v_ed " . $where . " order by hit_count desc";
+		$sql="select `id`, `title`, `description`, `lesson_link`, `lesson_image`, `category`, `student_grades`, `author`, `content_type`, `time_scraped` from v_ed " . $where . " order by hit_count desc limit 20";
 		//echo $sql;
 		$result = mysqli_query($conn, $sql);
 		if($result){
